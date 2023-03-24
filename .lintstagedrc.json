@@ -1,6 +1,7 @@
 {
-  "src/**/*.{ts,tsx}": [
+  "*.ts": [
     "eslint",
-    "prettier --write"
+    "prettier --write",
+    "npm run test:staged"
   ]
 }
