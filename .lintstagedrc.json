@@ -1,6 +1,6 @@
 {
-  "*.ts": [
-    "npm run eslint 'src/**' --fix",
-    "npm run prettier --check 'src/**'"
+  "src/**/*.{ts,tsx}": [
+    "eslint",
+    "prettier --write"
   ]
 }
