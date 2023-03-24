@@ -1,0 +1,6 @@
+{
+  "*.ts": [
+    "npm run eslint 'src/**' --fix",
+    "npm run prettier --check 'src/**'"
+  ]
+}
