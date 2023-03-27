@@ -12,6 +12,7 @@
     "project": ["./tsconfig.json"]
   },
   "rules": {
-    "quotes": "off"
+    "quotes": "off",
+    "@typescript-eslint/strict-boolean-expressions": "off"
   }
 }
