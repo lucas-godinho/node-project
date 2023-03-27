@@ -1,4 +1,5 @@
 import { SignUpController } from "./signup";
+import { MissignParamError } from "../erros/missignParamError";
 
 describe("SignUp Controller", () => {
   test("Should return 400 if no name is provided", () => {
@@ -12,7 +13,7 @@ describe("SignUp Controller", () => {
     };
     const httpResponse = sut.handle(httpRequest);
     expect(httpResponse.statusCode).toBe(400);
-    expect(httpResponse.body).toEqual(new Error("Missign param: name"));
+    expect(httpResponse.body).toEqual(new MissignParamError("name"));
   });
 
   test("Should return 400 if no email is provided", () => {
@@ -26,6 +27,6 @@ describe("SignUp Controller", () => {
     };
     const httpResponse = sut.handle(httpRequest);
     expect(httpResponse.statusCode).toBe(400);
-    expect(httpResponse.body).toEqual(new Error("Missign param: email"));
+    expect(httpResponse.body).toEqual(new MissignParamError("email"));
   });
 });
