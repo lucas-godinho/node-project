@@ -1,10 +1,12 @@
-export default {
-  clearMocks: true,
-  collectCoverage: true,
-  coverageDirectory: "coverage",
-  coverageProvider: "v8",
+module.exports = {
   roots: ["<rootDir>/src"],
-  collectCoversageFrom: ["<rootDir>/src/**/*.ts"],
-  testEvironment: "node",
-  transform: { ".+\\.ts$": "ts-jest" },
+  collectCoverageFrom: ["<rootDir>/src/**/*.ts"],
+  coverageDirectory: "coverage",
+  testEnvironment: "node",
+  transform: {
+    ".+\\.ts$": "ts-jest",
+  },
+  moduleNameMapper: {
+    "@/(.*)": "<rootDir>/src/$1",
+  },
 };
