@@ -1,19 +1,14 @@
 import type * as Http from "../protocols/http";
 import { MissignParamError } from "../erros/missignParamError";
+import { badRequest } from "../helpers/httpHelper";
 
 export class SignUpController {
   handle(httpRequest: Http.Request): Http.Response {
     if (!httpRequest.body.name) {
-      return {
-        statusCode: 400,
-        body: new MissignParamError("name"),
-      };
+      return badRequest(new MissignParamError("name"));
     }
     if (!httpRequest.body.email) {
-      return {
-        statusCode: 400,
-        body: new MissignParamError("email"),
-      };
+      return badRequest(new MissignParamError("email"));
     } else {
       return {
         statusCode: 200,
