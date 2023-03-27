@@ -3,17 +3,13 @@ import { MissignParamError } from "../erros/missignParamError";
 import { badRequest } from "../helpers/httpHelper";
 
 export class SignUpController {
-  handle(httpRequest: Http.Request): Http.Response {
-    if (!httpRequest.body.name) {
-      return badRequest(new MissignParamError("name"));
-    }
-    if (!httpRequest.body.email) {
-      return badRequest(new MissignParamError("email"));
-    } else {
-      return {
-        statusCode: 200,
-        body: "any_body",
-      };
+  handle(httpRequest: Http.Request): Http.Response | undefined {
+    const requiredFields = ["name", "email"];
+
+    for (const field of requiredFields) {
+      if (!httpRequest.body[field]) {
+        return badRequest(new MissignParamError(field));
+      }
     }
   }
 }
